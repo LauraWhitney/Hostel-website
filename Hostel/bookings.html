@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bookings.css">
+    <title>Hostel Booking</title>
+</head>
+<body>
+    <h1>Hostel Booking</h1>
+    <div id="room-selection">
+        <h2>Room Selection</h2>
+        <div class="room-option" onclick="showPayment('single', 50)">
+            <img src="Images/hostel3.jpg" alt="Single Room">
+            <p>Single Room</p>
+            <p>30,000 per month</p>
+        </div>
+        <div class="room-option" onclick="showPayment('double', 80)">
+            <img src="Images/hostel4.jpg" alt="Double Room">
+            <p>Double Room</p>
+            <p>20,000 per month</p>
+        </div>
+        <div class="room-option" onclick="showPayment('shared', 30)">
+            <img src="Images/hostel2.jpg" alt="Shared Room">
+            <p>Shared Room</p>
+            <p>23,000 per month</p>
+        </div>
+        <label for="roommates">Number of Roommates:</label>
+        <input type="number" id="roommates" min="1" max="5" value="1">
+        <p id="price-display">Total Price: 35,000</p>
+        <button onclick="showPayment()">Proceed to Payment</button>
+    </div>
+    <div id="payment-details" style="display: none;">
+        <h2>Payment Details</h2>
+        <form id="booking-form" method="post" action="bookings.php">
+            <p>Total Amount:  <span id="total-amount"></span></p>
+            <label for="Mpesa">Mpesa number:</label>
+            <input type="text" id="card-number" name="card-number" placeholder="Enter your Mpesa number" required>
+            <input type="hidden" id="room-type" name="room-type">
+            <input type="hidden" id="total-price" name="total-price">
+            <input type="hidden" id="roommates-count" name="roommates-count">
+            <button type="submit">Confirm Booking</button>
+        </form>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
